@@ -1,0 +1,52 @@
+
+
+
+                                                                      Banco De Dados 2
+Pedro Rodrigues Santos Valle
+Matrícula:01810422
+
+
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+
+Delimiter $$
+Drop trigger if exists TriggerC $$
+Create  Trigger TriggerControleTrocaDepartamento
+ After update on departamento
+ 
+ for each row begin
+ insert into  ControleTrocaDepartamento
+		(idControleTrocaDepartamento,DepartamentoAntigo,empregado_idEmpregado,DepartementoNovo,dataTroca)
+Values (old.idControleTrocaDepartamento,old.DepartamentoAntigo,old.empregado_idEmpregado,old.DepartementoNovo ,now());
+ 
+ end $$
+ Delimiter ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
