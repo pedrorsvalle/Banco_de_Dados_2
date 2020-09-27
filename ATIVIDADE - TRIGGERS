@@ -4,42 +4,51 @@
                                                                       Banco De Dados 2
 Pedro Rodrigues Santos Valle
 Matrícula:01810422
-
-
+									 LISTA 
+									TRIGGER
 
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 
-
-Delimiter $$
-Drop trigger if exists TriggerC $$
-Create  Trigger TriggerControleTrocaDepartamento
- After update on departamento
+1- 
+CREATE DEFINER=`root`@`localhost` TRIGGER `ControleTrocaDepartamento` AFTER UPDATE ON `empregado` FOR EACH ROW begin
  
- for each row begin
  insert into  ControleTrocaDepartamento
-		(idControleTrocaDepartamento,DepartamentoAntigo,empregado_idEmpregado,DepartementoNovo,dataTroca)
-Values (old.idControleTrocaDepartamento,old.DepartamentoAntigo,old.empregado_idEmpregado,old.DepartementoNovo ,now());
+		(empregado_idempregado, DepartamentoAntigo, DepartamentoNovo, dataTroca)
+	Values (old.idempregado, old.Departamento_idDepartamento, new.Departamento_idDepartamento , now());
+ end
  
- end $$
- Delimiter ;
+ 
+ --------------------------------------------------------------------
+ UPDATE empregado
+SET empregado.departamento_iddepartamento = 0
+WHERE empregado.idempregado = 3;
+
+ --------------------------------------------------------------------
+ 
+ 
+
+2- 
+
+CREATE DEFINER=`root`@`localhost` TRIGGER `empregado_after_update` AFTER UPDATE ON `empregado` FOR EACH ROW BEGIN
+ insert into  controle_alteracao_empregado
+	(idempregado, NomeAnterior, SobrenomeAnterior, SalarioAnterior, QtdDependentesAnterior, 
+	 RGAnterior,  CPFAnterior,  departamento_iddepartamentoAnterior,dataTroca)
+	VALUES  
+	(old.idempregado, Old.Nome, Old.Sobrenome, Old.Salario, Old.QtdDependentes, 
+	 Old.RG,  Old.CPF,  Old.departamento_iddepartamento, NOW());
+END
+
+
+ ---------------------------------------------------------------------
+
+UPDATE empregado
+SET empregado.departamento_iddepartamento = 1
+WHERE empregado.idempregado = 3;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ --------------------------------------------------------------------
 
 
 
