@@ -1,0 +1,46 @@
+
+Pedro Rodrigues Santos Valle
+Matrícula: 01810422
+
+                                                                              BANCO DE DADOS 2
+
+                                                                                Caso Parte 1
+
+                                                                        CONSTRUA OS SEGUINTES PROCEDIMENTOS:
+
+
+nomeProcedimento: proc_CadastarEspecialidade
+parametrosEntrada: nomeEspecialidade(varchar(45))
+respostas: 1 - Cadastrado Com sucesso.
+2 - Especialidade cadastrada previamente.
+3 - Não é possível cadastrar especialidade com menos de 5 caracteres.
+
+
+------------------------------------------
+nomeProcedimento: proc_CadastrarMedico
+parametrosEntrada: nomeMedico, rg, cpf, crm
+respostas: 1 - Cadastrado Com sucesso.
+2 - Médico cadastrado previamente.
+3 - Não é possível cadastrar com menos de 5 caracteres
+
+--------------------------------------
+nomeProcedimento: proc_CadastrarSecretaria
+parametrosEntrada:
+respostas:
+
+
+
+
+---------------------------------
+*o procedimento recebe dados referentes a duas tabelas e internamente ele faz dois
+comandos de insert. após inserir o paciente na tabela, utilize o seu cpf para encontrar a chave
+primária idpaciente que será utilizada para cadastrar na tabela atendimento.
+nomeProcedimento: proc_CadastrarPaciente_atendimento
+parametrosEntrada: nomePaciente,dataNascimento,rg,cpf,idSecretaria,
+respostas: 1 – Cadastrado com sucesso
+ 2 – Nome Inválido.
+ 
+ 
+ 
+ 
+ 
