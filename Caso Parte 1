@@ -2,11 +2,24 @@
 Pedro Rodrigues Santos Valle
 Matrícula: 01810422
 
-                                                                              BANCO DE DADOS 2
+                                                                           BANCO DE DADOS 2
 
-                                                                                Caso Parte 1
+                                                                            Caso Parte 1
 
-                                                                        CONSTRUA OS SEGUINTES PROCEDIMENTOS:
+                                                                   CONSTRUA OS SEGUINTES PROCEDIMENTOS:
+
+
+
+              INSERT:
+
+
+PACIENTE:
+
+
+
+
+
+
 
 
 nomeProcedimento: proc_CadastarEspecialidade
