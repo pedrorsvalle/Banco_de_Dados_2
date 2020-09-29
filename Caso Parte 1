@@ -50,6 +50,8 @@ Secretaria(nome,RG,cpf,senha) values ('Ana','17.516.016-6','776.436.251-74','025
 insert into
 Secretaria(nome,RG,cpf,senha) values ('Hercules ','11.605.361-7','776.658.251-74','1287');
 
+insert into
+Secretaria(nome,RG,cpf,senha) values ('Fernanda ','35.605.361-6','776.698.225-44','2377');
 
 
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
