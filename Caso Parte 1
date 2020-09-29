@@ -36,6 +36,7 @@ paciente(nomePaciente,dataNascimento,RG,cpf) values ('Isabella','1999/10/21','37
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
 Secretaria :
+
 insert into
 Secretaria(nome,RG,cpf,senha) values ('Fabio','07.568.016-4','776.175.251-74','0549');
 
@@ -56,6 +57,7 @@ Secretaria(nome,RG,cpf,senha) values ('Fernanda ','35.605.361-6','776.698.225-44
 
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
 Atendimento_medico :
 
 
@@ -75,13 +77,117 @@ atendimento_medico(atendimento_medico,medico_idmedico,data_inicio,hora_inicio,da
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
+atendimento :
+
+insert into
+atendimento(paciente_idpaciente,data,hora,Secrateria_idSecrateria) values (‘ 0000000001 ',’ now()); ','  ',’ 0000000001  ’);
+
+insert into
+atendimento(paciente_idpaciente,data,hora,Secrateria_idSecrateria) values (‘ 0000000002 ','  ','  ',’ 0000000002 ’);
+
+insert into
+atendimento(paciente_idpaciente,data,hora,Secrateria_idSecrateria) values (‘ 0000000003 ','  ','  ',’ 0000000003 ’);
+
+insert into
+atendimento(paciente_idpaciente,data,hora,Secrateria_idSecrateria) values (‘ 0000000004 ','  ','  ',’  0000000004 ’);
+
+insert into
+atendimento(paciente_idpaciente,data,hora,Secrateria_idSecrateria) values (‘ 0000000005 ','  ','  ',’ 0000000005  ’);
+
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+medico:
+
+insert into
+medico(nomemedico,RG,cpf,crm) values ('Flávio,'63.601.541-7','776.658.251-74',558);
+
+insert into
+medico(nomemedico,RG,cpf,crm) values ('Sofía,'63.401.541-7','776.658.251-74',’187’);
+
+insert into
+medico(nomemedico,RG,cpf,crm) values ('Maria,'45.651.541-7','776.658.251-74',’487’);
+
+insert into
+medico(nomemedico,RG,cpf,crm) values ('Mariana,'02.901.541-7','776.658.251-74',’487’);
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+medico_especialidade :
+
+insert into
+medico_especialidade(medico_especialidade, especialidade_id especialidade) values (','','');
+
+insert into
+medico_especialidade(medico_especialidade, especialidade_id especialidade) values (','','');
+
+insert into
+medico_especialidade(medico_especialidade, especialidade_id especialidade) values (','','');
+
+insert into
+medico_especialidade(medico_especialidade, especialidade_id especialidade) values (','','');
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+contatos_emergencia :
+
+insert into
+atendimento_idatendimento(nomeContatoEmergencia,telefone,telefone2) values (' ','  ','  ');
+
+insert into
+atendimento_idatendimento(nomeContatoEmergencia,telefone,telefone2) values (' ','  ','  ');
+
+insert into
+atendimento_idatendimento(nomeContatoEmergencia,telefone,telefone2) values (' ','  ','  ');
+
+insert into
+atendimento_idatendimento(nomeContatoEmergencia,telefone,telefone2) values (' ','  ','  ');
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+anamnese_clinica :
+
+insert into
+anamnese_clinica(atendimento_idatendimento,motivoConsulta) values (' ',' ');
+
+insert into
+anamnese_clinica(atendimento_idatendimento,motivoConsulta) values (' ',' ');
+
+insert into
+anamnese_clinica(atendimento_idatendimento,motivoConsulta) values (' ',' ');
+
+insert into
+anamnese_clinica(atendimento_idatendimento,motivoConsulta) values (' ',' ');
 
 
 
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+especialidade:
+
+insert into
+especialidade(nomeEspecialidade,) values ('  ');
+
+insert into
+especialidade(nomeEspecialidade,) values ('  ');
 
 
+insert into
+especialidade(nomeEspecialidade,) values ('  ');
+
+insert into
+especialidade(nomeEspecialidade,) values ('  ');
 
 
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+                                                                               PROCEDIMENTOS
+                                                                              -*-*-*-*-*-*-*-
 
 nomeProcedimento: proc_CadastarEspecialidade
 parametrosEntrada: nomeEspecialidade(varchar(45))
