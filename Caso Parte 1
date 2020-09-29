@@ -9,11 +9,11 @@ Matrícula: 01810422
                                                                    CONSTRUA OS SEGUINTES PROCEDIMENTOS:
 
 
-
-              INSERTS:
-
-
+            *--**--**--**--*
+            * INSERTS: **--*
+            *--**--**--**--*
 Paciente :
+
 insert into
 paciente(nomePaciente,dataNascimento,RG,cpf) values ('Duda','2020/04/02','07.518.016-2','776.475.251-74');
 
@@ -37,17 +37,19 @@ paciente(nomePaciente,dataNascimento,RG,cpf) values ('Isabella','1999/10/21','37
 
 Secretaria :
 insert into
-Secretaria(nome,RG,cpf,senha) values ('Fabio,'07.568.016-4','776.175.251-74',’0549’);
-
-insert into
-Secretaria(nome,RG,cpf,senha) values ('Eduardo,'57.515.016-2','806.475.251-74',’0204’);
-
-insert into
-Secretaria(nome,RG,cpf,senha) values ('Ana,'17.516.016-6','776.436.251-74',’0259’);
+Secretaria(nome,RG,cpf,senha) values ('Fabio','07.568.016-4','776.175.251-74','0549');
 
 
 insert into
-Secretaria(nome,RG,cpf,senha) values ('Hercules,'11.605.361-7','776.658.251-74',’1287’);
+Secretaria(nome,RG,cpf,senha) values ('Eduardo','57.515.016-2','806.475.251-74','0204');
+
+insert into
+Secretaria(nome,RG,cpf,senha) values ('Ana','17.516.016-6','776.436.251-74','0259');
+
+
+insert into
+Secretaria(nome,RG,cpf,senha) values ('Hercules ','11.605.361-7','776.658.251-74','1287');
+
 
 
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
