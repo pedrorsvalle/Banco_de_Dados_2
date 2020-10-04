@@ -209,37 +209,179 @@ especialidade(nomeEspecialidade) values (' Ortopedia');
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
                                                                                PROCEDIMENTOS
                                                                               -*-*-*-*-*-*-*-
+CRIAÇÃO STORED PROCEDURE
 
-nomeProcedimento: proc_CadastarEspecialidade
-parametrosEntrada: nomeEspecialidade(varchar(45))
-respostas: 1 - Cadastrado Com sucesso.
-2 - Especialidade cadastrada previamente.
-3 - Não é possível cadastrar especialidade com menos de 5 caracteres.
+                                         *-*-*-*-*-*-*-*-*nomeProcedimento: proc_CadastarEspecialidade
 
 
-------------------------------------------
-nomeProcedimento: proc_CadastrarMedico
-parametrosEntrada: nomeMedico, rg, cpf, crm
-respostas: 1 - Cadastrado Com sucesso.
-2 - Médico cadastrado previamente.
-3 - Não é possível cadastrar com menos de 5 caracteres
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_CadastarEspecialidade`(IN nomeEspec VARCHAR(45), OUT resultado VARCHAR(100)) 
 
---------------------------------------
-nomeProcedimento: proc_CadastrarSecretaria
-parametrosEntrada:
-respostas:
+BEGIN
+   DECLARE tamanho INT;
+   
+   SET Tamanho = LENGTH(nomeEspec);
+
+	if tamanho < 5 then 
+		set resultado = 'Não é possível cadastrar especialidade com menos de 5 caracteres';
+	else
+		IF EXISTS(SELECT nomeEspecialidade FROM especialidade WHERE nomeEspecialidade = nomeEspec) THEN
+			set resultado = 'Especialidade cadastrada previamente';
+		ELSE 
+			SET resultado = 'Cadastrado com sucesso';
+			insert into  especialidade(nomeEspecialidade) VALUES (nomeEspec);
+
+				
+		End if;		
+	End if;
+END; $$
+DELIMITER;
+
+
+*-*-*-*-*-*-*-*-* TESTAR PROCEDURE:
+
+call proc_CadastarEspecialidade('teste', @S_Course);
+
+SELECT @S_Course;
+
+
+*-*-*-*-*-*-*-*-*APAGAR Stored PROCEDURE:
+
+DROP PROCEDURE proc_CadastarEspecialidade;
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
 
 
 
----------------------------------
-*o procedimento recebe dados referentes a duas tabelas e internamente ele faz dois
-comandos de insert. após inserir o paciente na tabela, utilize o seu cpf para encontrar a chave
-primária idpaciente que será utilizada para cadastrar na tabela atendimento.
-nomeProcedimento: proc_CadastrarPaciente_atendimento
-parametrosEntrada: nomePaciente,dataNascimento,rg,cpf,idSecretaria,
-respostas: 1 – Cadastrado com sucesso
- 2 – Nome Inválido.
- 
- 
+
+                                                          *-*-*-*-*-*-*-*-*NomePROCEDIMENTO:Proc_CadastroMedico
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_CadastrarMedico`(IN nomeMed VARCHAR(45),IN rg VARCHAR (45), IN cpf VARCHAR (15), IN crm VARCHAR(20), OUT resultado VARCHAR(100))
+
+BEGIN
+   DECLARE tamanho INT;
+   
+   SET Tamanho = LENGTH(nomeMed );
+
+	if tamanho < 5 then 
+		set resultado = 'Não é possível cadastrar medico com menos de 5 caracteres';
+	else
+		IF EXISTS(SELECT nomeMedico FROM medico WHERE nomeMedico = nomeMed) THEN
+			set resultado = 'medico cadastrada previamente';
+		ELSE 
+			SET resultado = 'Cadastrado com sucesso';
+			insert into  medico(nomeMedico) VALUES (nomeMed);
+		
+		End if;		
+	End if;
+END; $$
+DELIMITER;
+
+
+*-*-*-*-*-*-*-*-*TESTAR PROCEDURE
+call proc_CadastrarMedico('pedro','111111','222222','0156', @S_Course);
+
+SELECT @S_Course;
+
+
+
+*-*-*-*-*-*-*-*-*APAGAR Stored PROCEDURE:
+
+DROP PROCEDURE proc_CadastrarMedico;
+
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+
+
+                                                      *-*-*-*-*-*-*-*-*nomeProcedimento: proc_CadastrarSecretaria
+
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_CadastrarSecretaria`(IN nomeSecre VARCHAR(45), IN rg VARCHAR (45), IN cpf VARCHAR (15), IN senha VARCHAR(20), OUT resultado VARCHAR(100))
+
+BEGIN
+   DECLARE tamanho INT;
+   
+   SET Tamanho = LENGTH(nomeSecre);
+
+	if tamanho < 5 then 
+	
+		set resultado = 'Não é possível cadastrar especialidade com menos de 5 caracteres';
+	else
+		IF EXISTS(SELECT nomeSecretaria FROM Secretaria WHERE nomeSecretaria = nomeSecre) THEN
+			set resultado = 'secretaria cadastrada previamente';
+		ELSE 
+			SET resultado = 'Cadastrado com sucesso';
+			insert into  Secretaria(nomeSecretaria) VALUES (nomeSecre);
+		
+		End if;		
+	End if;
+END; $$
+DELIMITER;
+
+
+
+*-*-*-*-*-*-*-*-*TESTAR PROCEDURE:
+
+call proc_CadastrarSecretaria('joao','50468515412','541821543','1025', @S_Course);
+
+SELECT @S_Course;
+
+
+
+*-*-*-*-*-*-*-*-*APAGAR Stored PROCEDURE:
+
+
+DROP PROCEDURE proc_CadastrarSecretaria;
+
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+                                                     *-*-*-*-*-*-*-*-*proc_CadastrarPaciente_atendimento
+
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_CadastrarPaciente_atendimento`(IN nomePaci VARCHAR(45), IN dataNascimento DATE ,IN rg VARCHAR(45), IN cpf VARCHAR (45), IN idSecretaria VARCHAR(45), OUT resultado VARCHAR(100))
+
+BEGIN
+   DECLARE tamanho INT;
+   
+   SET Tamanho = LENGTH(nomePaci);
+
+	if tamanho < 5 then 
+	
+		set resultado = 'Não é possível cadastrar Paciente com menos de 5 caracteres';
+	else
+		IF EXISTS(SELECT nomePaciente FROM Paciente WHERE nomePaciente = nomePaci) THEN
+			set resultado = 'Nome Inválido';
+		ELSE 
+			SET resultado = 'Cadastrado com sucesso';
+			insert into  paciente(nomePaciente) VALUES (nomePaci);
+		
+		End if;		
+	End if;
+END; $$
+DELIMITER;
+
+
+*-*-*-*-*-*-*-*-*TESTAR PROCEDURE:
+
+call proc_CadastrarPaciente_atendimento('fernanda','2000/5/29','54445109','50048654816','0000000002', @S_Course);
+
+SELECT @S_Course;
+
+*-*-*-*-*-*-*-*-*APAGAR Stored PROCEDURE:
+
+DROP PROCEDURE proc_CadastrarPaciente_atendimento;
+
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+
  
