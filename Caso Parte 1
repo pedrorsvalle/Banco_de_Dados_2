@@ -165,11 +165,6 @@ contatos_emergencia(atendimento_idatendimento,nomeContatoEmergencia,telefone,tel
 values (0000000004,'Farmacia','1294548624','1294545264');
 
 
-
-
-
-
-
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
@@ -206,9 +201,10 @@ especialidade(nomeEspecialidade) values (' Ortopedia');
 
 
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
--*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-                                                                               PROCEDIMENTOS
-                                                                              -*-*-*-*-*-*-*-
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-         
+									-*-*-*-*-*-*-*-
+                                                                         PROCEDIMENTOS
+                                                                         -*-*-*-*-*-*-*-
 CRIAÇÃO STORED PROCEDURE
 
                                          *-*-*-*-*-*-*-*-*nomeProcedimento: proc_CadastarEspecialidade
@@ -253,10 +249,7 @@ DROP PROCEDURE proc_CadastarEspecialidade;
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
 
 
-
-
-
-                                                          *-*-*-*-*-*-*-*-*NomePROCEDIMENTO:Proc_CadastroMedico
+                                                        *-*-*-*-*-*-*-*-*NomePROCEDIMENTO:Proc_CadastroMedico
 
 DELIMITER $$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `proc_CadastrarMedico`(IN nomeMed VARCHAR(45),IN rg VARCHAR (45), IN cpf VARCHAR (15), IN crm VARCHAR(20), OUT resultado VARCHAR(100))
@@ -311,7 +304,7 @@ BEGIN
 
 	if tamanho < 5 then 
 	
-		set resultado = 'Não é possível cadastrar especialidade com menos de 5 caracteres';
+		set resultado = 'Não é possível cadastrar Secretaria com menos de 5 caracteres';
 	else
 		IF EXISTS(SELECT nomeSecretaria FROM Secretaria WHERE nomeSecretaria = nomeSecre) THEN
 			set resultado = 'secretaria cadastrada previamente';
@@ -325,7 +318,6 @@ END; $$
 DELIMITER;
 
 
-
 *-*-*-*-*-*-*-*-*TESTAR PROCEDURE:
 
 call proc_CadastrarSecretaria('joao','50468515412','541821543','1025', @S_Course);
@@ -333,9 +325,7 @@ call proc_CadastrarSecretaria('joao','50468515412','541821543','1025', @S_Course
 SELECT @S_Course;
 
 
-
 *-*-*-*-*-*-*-*-*APAGAR Stored PROCEDURE:
-
 
 DROP PROCEDURE proc_CadastrarSecretaria;
 
