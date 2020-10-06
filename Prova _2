@@ -127,7 +127,11 @@ ItensVenda:
 
 Produto:
 
-
+insert into Produto (nomeProduto,valorVenda,valorCompra) values('Geladeira','12000','8000');
+insert into Produto (nomeProduto,valorVenda,valorCompra) values('Máquina de lavar louça','5500','3500');
+insert into Produto (nomeProduto,valorVenda,valorCompra) values('Sapato','300','150');
+insert into Produto (nomeProduto,valorVenda,valorCompra) values('microondas','6000','5000');
+insert into Produto (nomeProduto,valorVenda,valorCompra) values('Cerveja','50','20');
 
     PERGUNTAS:
 
