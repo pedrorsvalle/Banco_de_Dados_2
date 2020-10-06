@@ -89,8 +89,9 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
                                                                         *-*-*-*-*-*-*-*-*-*-*-*-*-*
 
 
-
+*-*-*-*-
 Cliente: 
+*-*-*-*-
 
 insert into cliente (nome,cpf) values ('Duda','776.475.251-74');
 insert into cliente (nome,cpf) values ('André','667.956.666-54');
@@ -100,8 +101,10 @@ insert into cliente (nome,cpf) values ('Matheus','732.814.977-99');
 
 
 
+*-*-*-*-
+ Venda: 
+*-*-*-*-
 
-Venda: 
 insert into venda (cliente_idcliente ,vendedor_idvendedor,dataVenda)
 values('1','2',NOW());
 
@@ -118,27 +121,34 @@ insert into venda (cliente_idcliente ,vendedor_idvendedor, dataVenda)
 values('5','4',NOW());
 
 
-Vendedor 
+*-*-*-*-
+Vendedor:
+*-*-*-*-
+
 insert into Vendedor (nome,cpf) values('Maria','776.474.251-34');
 insert into Vendedor (nome,cpf) values('Vitória','667.986.666-04');
 insert into Vendedor (nome,cpf) values('Felipe','824.554.954-07');
 insert into Vendedor (nome,cpf) values('Gabi','717.871.652-17');
 insert into Vendedor (nome,cpf) values('Pedro','732.864.977-53');
 
-
-
-
+*-*-*-*-*-
 ItensVenda:
+*-*-*-*-*-
 
+insert into ItensVenda(venda_idvenda , produto_idproduto)
+values('1','5');
+insert into ItensVenda (venda_idvenda , produto_idproduto)
+values('2','4');
+insert into ItensVenda (venda_idvenda , produto_idproduto)
+values('3','3');
+insert into ItensVenda (venda_idvenda , produto_idproduto)
+values('4','2');
+insert into ItensVenda (venda_idvenda , produto_idproduto)
+values('5','1');
 
-
-
-
-
-
-
-
+*-*-*-*-
 Produto:
+*-*-*-*-
 
 insert into Produto (nomeProduto,valorVenda,valorCompra) values('Geladeira','12000','8000');
 insert into Produto (nomeProduto,valorVenda,valorCompra) values('Máquina de lavar louça','5500','3500');
@@ -146,6 +156,7 @@ insert into Produto (nomeProduto,valorVenda,valorCompra) values('Sapato','300','
 insert into Produto (nomeProduto,valorVenda,valorCompra) values('microondas','6000','5000');
 insert into Produto (nomeProduto,valorVenda,valorCompra) values('Cerveja','50','20');
 
+   
     PERGUNTAS:
 
 1. Construa uma consulta utilizando joins que:
@@ -153,6 +164,23 @@ insert into Produto (nomeProduto,valorVenda,valorCompra) values('Cerveja','50','
 a. Selecione e apresente todos os itens das vendas juntamente com o nome do
 produto, nome do vendedor e nome do cliente. Ordene os dados em ordem
 alfabética.
+
+b. Inclua na consulta do item a os clientes que nunca efetuaram uma venda.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
