@@ -92,9 +92,11 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 Cliente: 
 
-
-
-
+insert into cliente (nome,cpf) values ('Duda','776.475.251-74');
+insert into cliente (nome,cpf) values ('André','667.956.666-54');
+insert into cliente (nome,cpf) values ('Rodolfo','824.554.954-18');
+insert into cliente (nome,cpf) values ('Isabella','717.571.652-40');
+insert into cliente (nome,cpf) values ('Matheus','732.814.977-99');
 
 
 
@@ -104,7 +106,11 @@ Venda:
 
 
 Vendedor 
-
+insert into Vendedor (nome,cpf) values('Maria','776.474.251-34');
+insert into Vendedor (nome,cpf) values('Vitória','667.986.666-04');
+insert into Vendedor (nome,cpf) values('Felipe','824.554.954-07');
+insert into Vendedor (nome,cpf) values('Gabi','717.871.652-17');
+insert into Vendedor (nome,cpf) values('Pedro','732.864.977-53');
 
 
 
@@ -120,6 +126,16 @@ ItensVenda:
 
 
 Produto:
+
+
+
+    PERGUNTAS:
+
+1. Construa uma consulta utilizando joins que:
+
+a. Selecione e apresente todos os itens das vendas juntamente com o nome do
+produto, nome do vendedor e nome do cliente. Ordene os dados em ordem
+alfabética.
 
 
 
