@@ -1,0 +1,129 @@
+Pedro Rodrigues Santos Valle
+Matrícula : 01810422 
+
+
+                                                                   PROVA 
+
+                                                               -*-*-*-*-*-*-*-
+                                                               BANCO DE DADOS 2 
+                                                               -*-*-*-*-*-*-*-
+
+
+-*-*-*-* CÓDIGO DA CRIAÇÃO DA TABELA                                                              
+
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+CREATE TABLE IF NOT EXISTS `prova_banco_de_dados`.`Venda` (
+  `idVenda` INT(11) NOT NULL AUTO_INCREMENT,
+  `dataVenda` DATETIME NULL DEFAULT NULL,
+  `Cliente_idCliente` INT(11) NOT NULL,
+  `Vendedor_idVendedor` INT(11) NOT NULL,
+  PRIMARY KEY (`idVenda`),
+  INDEX `fk_Venda_Cliente_idx` (`Cliente_idCliente` ASC) ,
+  INDEX `fk_Venda_Vendedor1_idx` (`Vendedor_idVendedor` ASC) ,
+  CONSTRAINT `fk_Venda_Cliente`
+    FOREIGN KEY (`Cliente_idCliente`)
+    REFERENCES `prova_banco_de_dados`.`Cliente` (`idCliente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Venda_Vendedor1`
+    FOREIGN KEY (`Vendedor_idVendedor`)
+    REFERENCES `prova_banco_de_dados`.`Vendedor` (`idVendedor`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `prova_banco_de_dados`.`Vendedor` (
+  `idVendedor` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NULL DEFAULT NULL,
+  `cpf` VARCHAR(15) NULL DEFAULT NULL,
+  PRIMARY KEY (`idVendedor`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `prova_banco_de_dados`.`ItensVenda` (
+  `idItensVenda` INT(11) NOT NULL AUTO_INCREMENT,
+  `Venda_idVenda` INT(11) NOT NULL,
+  `Produto_idProduto` INT(11) NOT NULL,
+  PRIMARY KEY (`idItensVenda`),
+  INDEX `fk_ItensVenda_Venda1_idx` (`Venda_idVenda` ASC) ,
+  INDEX `fk_ItensVenda_Produto1_idx` (`Produto_idProduto` ASC) ,
+  CONSTRAINT `fk_ItensVenda_Venda1`
+    FOREIGN KEY (`Venda_idVenda`)
+    REFERENCES `prova_banco_de_dados`.`Venda` (`idVenda`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_ItensVenda_Produto1`
+    FOREIGN KEY (`Produto_idProduto`)
+    REFERENCES `prova_banco_de_dados`.`Produto` (`idProduto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `prova_banco_de_dados`.`Produto` (
+  `idProduto` INT(11) NOT NULL AUTO_INCREMENT,
+  `nomeProduto` VARCHAR(45) NULL DEFAULT NULL,
+  `valorVenda` FLOAT(11) NULL DEFAULT NULL,
+  `valorCompra` FLOAT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`idProduto`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+
+                                                                        INSERIR VALORES NAS TABELAS 
+                                                                        *-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+
+
+Cliente: 
+
+
+
+
+
+
+
+
+Venda: 
+
+
+
+Vendedor 
+
+
+
+
+
+ItensVenda:
+
+
+
+
+
+
+
+
+
+Produto:
+
+
+
+
+
+
+
