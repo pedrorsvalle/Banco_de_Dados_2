@@ -102,7 +102,20 @@ insert into cliente (nome,cpf) values ('Matheus','732.814.977-99');
 
 
 Venda: 
+insert into venda (cliente_idcliente ,vendedor_idvendedor,dataVenda)
+values('1','2',NOW());
 
+insert into venda (cliente_idcliente ,vendedor_idvendedor, dataVenda)
+values('2','3',NOW());
+
+insert into venda (cliente_idcliente ,vendedor_idvendedor, dataVenda)
+VALUES('3','1',NOW());
+
+insert into venda (cliente_idcliente ,vendedor_idvendedor, dataVenda)
+values('4','5',NOW());
+
+insert into venda (cliente_idcliente ,vendedor_idvendedor, dataVenda)
+values('5','4',NOW());
 
 
 Vendedor 
