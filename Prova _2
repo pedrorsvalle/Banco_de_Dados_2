@@ -165,6 +165,37 @@ a. Selecione e apresente todos os itens das vendas juntamente com o nome do
 produto, nome do vendedor e nome do cliente. Ordene os dados em ordem
 alfabética.
 
+
+testessss 
+
+SELECT * FROM itensvenda , produto ,cliente,vendedor
+WHERE venda_idVenda = produto.idProduto
+  
+
+
+
+select * from itensvenda , produto ,cliente
+where venda_idvenda= produto.idProduto
+      
+select  * from itensvenda
+join produto on Produto_idProduto =itensvenda.Produto_idProduto
+join cliente on cliente.idCliente = cliente.idCliente
+order by cliente.nome
+
+
+select  * from itensvenda
+join produto on Produto_idProduto =itensvenda.Produto_idProduto
+join cliente on cliente.idCliente = cliente.idCliente
+order by cliente.nome
+
+*-*
+
+
+
+
+
+
+
 b. Inclua na consulta do item a os clientes que nunca efetuaram uma venda.
 
 
