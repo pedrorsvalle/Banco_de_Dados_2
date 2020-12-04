@@ -1,0 +1,74 @@
+
+
+1)	Quais as principais diferenças entre banco de dados relacionais e não relacionais?
+
+Banco de Dados Relacional:
+
+Bancos de dados relacionais representam e armazenam dados em tabelas e filas.
+
+As bases de dados relacionais utilizam Linguagem de Consulta Estruturada (SQL)
+
+A estrutura de um banco de dados relacional permite vincular informações de diferentes tabelas através do uso de chaves (ou índices) estrangeiras.
+
+Banco de Dados Não Relacional: 
+
+Bancos de dados não-relacionais representam dados em coleções de documentos JSON.
+
+Uma base de dados não relacional pode armazenar dados sem uma mecânica explícita e estruturada para vincular dados de diferentes tabelas uns aos outros.
+
+2)	Quando devemos utilizar bancos de dados não relacionais?
+
+•	Armazenando grandes volumes de dados sem estrutura definida. Um banco de dados NoSQL não limita os campos, diferente das colunas no SQL.
+•	Usando computação e armazenamento em nuvem.
+•	Desenvolvimento rápido.
+
+3)	Quando devemos usar triggers? Cite um exemplo prático.
+
+Pode-se usar TRIGGERS para atualizações e exclusões em cascata através de tabelas relacionadas em um banco de dados.
+
+Um exemplo:
+
+usando o MySQL 
+ 
+•	Você tem uma padaria. 
+•	E tem vários funcionários. 
+•	E para alterar os salários dos funcionários você pode criar uma Trigger que diz o salário base.
+•	Após mudar o salário base. 
+•	E atualizar A tabela Funcionário. 
+•	Vai atualizar o salário de todo mundo. 
+•	A Trigger vai ser executada sempre após o Update da tabela Salário. 
+
+
+4)	Quando devemos usar views? Cite um exemplo prático.
+
+•	Devemos usar a VIEWS Para simplificar o acesso a dados que estão armazenados em múltiplas tabelas relacionadas, implementar segurança nos dados de uma tabela, por exemplo, criando uma visão que limite os dados que podem ser acessados, por meio de uma cláusula WHERE.
+
+Exemplo :
+
+Em uma tabela de dados de funcionários  criar uma Views para facilitar o acesso aos dados de funcionários que atuam em um determinado estado. Desta forma é possível acessar as informações mais importantes destes funcionários de forma consolidada em uma "tabela virtual”
+
+
+5)	Quando devemos utilizar procedimentos? Cite um exemplo.
+
+Procedimentos Armazenados em MySQL (Stored Procedures)
+Podem ser usados para validação de dados, controle de acesso, execução de declarações SQL 
+complexas e muitas outras situações. 
+
+Stored procedures são rotinas definidas no banco de dados, identificadas por um nome pelo qual podem ser invocadas. Um procedimento desses pode executar uma série de instruções, receber parâmetros e retornar valores.
+
+Exemplo:
+
+•	O cliente faz um pedido, no qual são inseridos itens;
+•	O pedido (bem como os itens) permanece com status “PENDENTE” até ser confirmado;
+•	O operador confirma o pedido, registrando o movimento no livro caixa.
+Até o pedido ser confirmado, nenhum lançamento é feito no livro caixa, então é preciso ter uma rotina de confirmação do pedido, que deve executar as seguintes ações:
+
+•	Atualizar o status do pedido;
+•	Atualizar o status dos itens do pedido;
+•	Lançar o valor do pedido no caixa.
+       
+•	Poderíamos agrupar essas três instruções no corpo de um procedimento e chamá-lo a partir da aplicação uma única vez. As ações de update/insert/delete, a partir daí, ficariam por conta do servidor
+
+
+
+
